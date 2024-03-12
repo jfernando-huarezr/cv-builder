@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Personal from "./modules/Personal";
 import Education from "./modules/Education";
 import Experience from "./modules/Experience";
@@ -16,10 +15,5 @@ export default function Resume({ data }) {
     );
   });
 
-  return (
-    <>
-      {sections}
-      <Modal />
-    </>
-  );
+  return <>{sections}</>;
 }

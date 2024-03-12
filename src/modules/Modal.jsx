@@ -1,6 +1,10 @@
 import { useState } from "react";
+import editImg from "../assets/edit.svg";
+import deleteImg from "../assets/delete.svg";
+import EducationForm from "./EducationForm";
+import ExperienceForm from "./ExperienceForm";
 
-export default function Modal() {
+export default function Modal({ type, section }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
@@ -12,12 +16,17 @@ export default function Modal() {
   };
 
   return (
-    <div className="Edit">
-      <button onClick={openModal}>Open Modal</button>
+    <div className={`modal ${type}`}>
+      <button className="modal-button" onClick={openModal}>
+        {type === "edit" && <img src={editImg} alt="Edit" />}
+        {type === "delete" && <img src={deleteImg} alt="Delete" />}
+        {type === "new" && `${section}+`}
+      </button>
       {isOpen && (
         <div className="overlay">
           <div className="modal-container">
-            {/* Your form inputs go here */}
+            {section === "Education" && <EducationForm />}
+            {section === "Experience" && <ExperienceForm />}
             <button onClick={closeModal}>Close Modal</button>
           </div>
         </div>

@@ -1,0 +1,48 @@
+@import "modal";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  padding: 20px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+img {
+  max-width: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+section {
+  position: relative;
+  width: 80%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+section:hover {
+  border: 1px solid red;
+  border-radius: 10px;
+  .modal-button {
+    display: block;
+  }
+}
