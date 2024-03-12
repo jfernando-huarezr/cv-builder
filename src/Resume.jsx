@@ -3,14 +3,23 @@ import Education from "./modules/Education";
 import Experience from "./modules/Experience";
 import Modal from "./modules/Modal";
 
-export default function Resume({ data }) {
-  const sections = data.map((element) => {
+const sectionOrder = ["personalData", "education", "work"];
+
+export default function Resume({ resumeInfo }) {
+  const sections = sectionOrder.map((sectionKey) => {
+    const sectionData = resumeInfo[sectionKey];
     return (
-      <section key={element.id}>
-        <h1>{element.id}</h1>
-        {element.id === "Personal Data" && <Personal data={element.data} />}
-        {element.id === "Education" && <Education data={element.data} />}
-        {element.id === "Experience" && <Experience data={element.data} />}
+      <section key={sectionKey}>
+        <h1>
+          {sectionKey === "personalData"
+            ? ""
+            : sectionKey === "education"
+            ? "Education"
+            : "Experience"}
+        </h1>
+        {sectionKey === "personalData" && <Personal data={sectionData} />}
+        {sectionKey === "education" && <Education data={sectionData} />}
+        {sectionKey === "work" && <Experience data={sectionData} />}
       </section>
     );
   });

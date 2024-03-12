@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       </nav>
     </header>
     <main>
-      <Resume key={resumeKey} data={resumeInfo} />
+      <Resume key={resumeKey} resumeInfo={resumeInfo} />
     </main>
   </React.StrictMode>
 );
