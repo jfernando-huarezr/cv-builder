@@ -10,7 +10,7 @@ export default function Personal({ data }) {
   };
 
   const showPersonalInfo = (
-    <div key={personalData.id} className="personal-container">
+    <div key={personalData.id} className="personal-container card">
       <ul>
         <li>{personalData.fullName}</li>
         <li>{personalData.email}</li>
