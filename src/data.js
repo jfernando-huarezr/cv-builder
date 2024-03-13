@@ -15,8 +15,8 @@ export const resumeInfo = {
       degree: "Bachelor",
       school: "PUCP",
       country: "Peru",
-      startDate: "March 2019",
-      endDate: "July 2015",
+      startDate: "2019-03",
+      endDate: "2015-07",
     },
   ],
 

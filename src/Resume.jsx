@@ -2,7 +2,6 @@ import Personal from "./modules/Personal";
 import Education from "./modules/Education";
 import Experience from "./modules/Experience";
 import Modal from "./modules/Modal";
-
 const sectionOrder = ["personalData", "education", "work"];
 
 export default function Resume({ resumeInfo }) {

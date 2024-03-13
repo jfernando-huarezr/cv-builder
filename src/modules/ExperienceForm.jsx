@@ -1,7 +1,8 @@
-export default function ExperienceForm() {
+export default function ExperienceForm({ type }) {
   return (
     <div>
-      <h1>Add Experience Details</h1>
+      {type === "new" && <h1>Add new Work Experience</h1>}
+      {type === "edit" && <h1>Edit Work Experience</h1>}
       <form>
         <label htmlFor="position">Position:</label>
         <input type="text" id="position" name="position" required />

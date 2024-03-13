@@ -3,8 +3,9 @@ import editImg from "../assets/edit.svg";
 import deleteImg from "../assets/delete.svg";
 import EducationForm from "./EducationForm";
 import ExperienceForm from "./ExperienceForm";
+import PersonalForm from "./PersonalForm";
 
-export default function Modal({ type, section }) {
+export default function Modal({ type, section, handleData, currentData }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
@@ -25,8 +26,29 @@ export default function Modal({ type, section }) {
       {isOpen && (
         <div className="overlay">
           <div className="modal-container">
-            {section === "Education" && <EducationForm />}
-            {section === "Experience" && <ExperienceForm />}
+            {section === "Education" && (
+              <EducationForm
+                type={type}
+                handleData={handleData}
+                currentData={currentData}
+                closeModal={closeModal}
+              />
+            )}
+            {section === "Experience" && (
+              <ExperienceForm
+                type={type}
+                handleData={handleData}
+                currentData={currentData}
+                closeModal={closeModal}
+              />
+            )}
+            {section === "Personal" && (
+              <PersonalForm
+                handleData={handleData}
+                currentData={currentData}
+                closeModal={closeModal}
+              />
+            )}
             <button onClick={closeModal}>Close Modal</button>
           </div>
         </div>

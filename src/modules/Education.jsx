@@ -1,14 +1,36 @@
+import { useState } from "react";
+import Modal from "./Modal";
+import { formatDate } from "./helpers";
+
 export default function Education({ data }) {
-  const showEducationInfo = data.map((element) => {
+  const [educationData, setEducationData] = useState(data);
+
+  const handleEducationData = (updatedData) => {
+    setEducationData(
+      educationData.map((educationInfo) =>
+        educationInfo.id === updatedData.id
+          ? { ...educationInfo, ...updatedData }
+          : educationInfo
+      )
+    );
+  };
+
+  const showEducationInfo = educationData.map((educationInfo) => {
     return (
-      <div key={element.id} className="card">
+      <div key={educationInfo.id} className="card">
         <ul>
-          <li>{element.degree}</li>
-          <li>{element.school}</li>
-          <li>{element.country}</li>
-          <li>{element.startDate}</li>
-          <li>{element.endDate}</li>
+          <li>{educationInfo.degree}</li>
+          <li>{educationInfo.school}</li>
+          <li>{educationInfo.country}</li>
+          <li>{formatDate(educationInfo.startDate)}</li>
+          <li>{formatDate(educationInfo.endDate)}</li>
         </ul>
+        <Modal
+          type="edit"
+          section="Education"
+          handleData={handleEducationData}
+          currentData={educationInfo}
+        />
       </div>
     );
   });
