@@ -40,12 +40,8 @@ section {
   .card {
     position: relative;
   }
-}
 
-section:hover {
-  border: 1px solid red;
-  border-radius: 10px;
-  .modal-button {
+  .card:hover .modal-button {
     display: block;
   }
 }

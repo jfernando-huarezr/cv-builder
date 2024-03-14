@@ -6,19 +6,24 @@ export default function EducationForm({
   currentData,
   closeModal,
 }) {
-  console.log(currentData);
   const [formData, setFormData] = useState(currentData);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleData(formData);
+    closeModal();
+  };
   return (
     <div>
       {type === "new" && <h1>Add new Education</h1>}
       {type === "edit" && <h1>Edit Education</h1>}
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="degree">Degree:</label>
         <input
           type="text"

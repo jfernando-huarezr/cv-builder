@@ -1,19 +1,15 @@
 import { useState } from "react";
 import Modal from "./Modal";
 import { formatDate } from "./helpers";
+import { createDataUpdater } from "./helpers";
 
 export default function Education({ data }) {
   const [educationData, setEducationData] = useState(data);
 
-  const handleEducationData = (updatedData) => {
-    setEducationData(
-      educationData.map((educationInfo) =>
-        educationInfo.id === updatedData.id
-          ? { ...educationInfo, ...updatedData }
-          : educationInfo
-      )
-    );
-  };
+  const handleEducationData = createDataUpdater(
+    educationData,
+    setEducationData
+  );
 
   const showEducationInfo = educationData.map((educationInfo) => {
     return (
