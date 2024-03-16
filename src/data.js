@@ -16,7 +16,7 @@ export const resumeInfo = {
       school: "PUCP",
       country: "Peru",
       startDate: "2019-03",
-      endDate: "2015-07",
+      endDate: "2023-07",
     },
   ],
 
@@ -25,8 +25,8 @@ export const resumeInfo = {
       id: uuidv4(),
       position: "Technical",
       company: "Interamsa",
-      startDate: "January 2023",
-      endDate: "December 2023",
+      startDate: "2019-03",
+      endDate: "2023-03",
     },
   ],
 };

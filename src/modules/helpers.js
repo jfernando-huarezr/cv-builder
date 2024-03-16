@@ -10,4 +10,18 @@ function formatDate(inputDate) {
   return `${monthName} ${year}`;
 }
 
-export { formatDate };
+const createDataUpdater = (dataState, setDataState) => {
+  return (updatedData) => {
+    if (updatedData) {
+      setDataState(
+        dataState.map((dataInfo) =>
+          dataInfo.id === updatedData.id
+            ? { ...dataInfo, ...updatedData }
+            : dataInfo
+        )
+      );
+    }
+  };
+};
+
+export { formatDate, createDataUpdater };

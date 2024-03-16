@@ -41,9 +41,7 @@ section {
     position: relative;
   }
 
-  .card:hover {
-    .modal-button {
-      display: block;
-    }
+  .card:hover .modal-button {
+    display: block;
   }
 }
