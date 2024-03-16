@@ -3,15 +3,10 @@ import Modal from "./Modal";
 import { formatDate } from "./helpers";
 import { createDataUpdater } from "./helpers";
 
-export default function Education({ data }) {
-  const [educationData, setEducationData] = useState(data);
+export default function Education({ data, set }) {
+  const handleEducationData = createDataUpdater(data, set);
 
-  const handleEducationData = createDataUpdater(
-    educationData,
-    setEducationData
-  );
-
-  const showEducationInfo = educationData.map((educationInfo) => {
+  const showEducationInfo = data.map((educationInfo) => {
     return (
       <div key={educationInfo.id} className="card">
         <ul>

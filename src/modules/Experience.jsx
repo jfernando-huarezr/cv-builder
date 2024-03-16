@@ -3,15 +3,10 @@ import Modal from "./Modal";
 import { formatDate } from "./helpers";
 import { createDataUpdater } from "./helpers";
 
-export default function Experience({ data }) {
-  const [experienceData, setExperienceData] = useState(data);
+export default function Experience({ data, set }) {
+  const handleExperienceData = createDataUpdater(data, set);
 
-  const handleExperienceData = createDataUpdater(
-    experienceData,
-    setExperienceData
-  );
-
-  const showExperienceInfo = experienceData.map((element) => {
+  const showExperienceInfo = data.map((element) => {
     return (
       <div key={element.id} className="card">
         <ul>

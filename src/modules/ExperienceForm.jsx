@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export default function ExperienceForm({
   type,
@@ -6,7 +7,17 @@ export default function ExperienceForm({
   currentData,
   closeModal,
 }) {
-  const [formData, setFormData] = useState(currentData);
+  const initialFormData = {
+    id: uuidv4(),
+    position: "",
+    company: "",
+    startDate: "",
+    endDate: "",
+  };
+
+  const [formData, setFormData] = useState(
+    type === "edit" ? currentData : initialFormData
+  );
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,7 +39,7 @@ export default function ExperienceForm({
           type="text"
           id="position"
           name="position"
-          value={type === "edit" ? formData.position : ""}
+          value={formData.position}
           onChange={handleChange}
           required
         />
@@ -38,7 +49,7 @@ export default function ExperienceForm({
           type="text"
           id="company"
           name="company"
-          value={type === "edit" ? formData.company : ""}
+          value={formData.company}
           onChange={handleChange}
           required
         />
@@ -48,7 +59,7 @@ export default function ExperienceForm({
           type="month"
           id="startDate"
           name="startDate"
-          value={type === "edit" ? formData.startDate : ""}
+          value={formData.startDate}
           onChange={handleChange}
           placeholder="e.g., January 2023"
           required
@@ -59,7 +70,7 @@ export default function ExperienceForm({
           type="month"
           id="endDate"
           name="endDate"
-          value={type === "edit" ? formData.endDate : ""}
+          value={formData.endDate}
           onChange={handleChange}
           placeholder="e.g., December 2023"
           required

@@ -1,27 +1,25 @@
 import Modal from "./Modal";
 import { useState } from "react";
 
-export default function Personal({ data }) {
-  const [personalData, setPersonalData] = useState(data);
-
+export default function Personal({ data, set }) {
   const handlePersonalData = (updatedData) => {
-    const updatedPersonal = { ...personalData, ...updatedData };
-    setPersonalData(updatedPersonal);
+    const updatedPersonal = { ...data, ...updatedData };
+    set(updatedPersonal);
   };
 
   const showPersonalInfo = (
-    <div key={personalData.id} className="personal-container card">
+    <div key={data.id} className="personal-container card">
       <ul>
-        <li>{personalData.fullName}</li>
-        <li>{personalData.email}</li>
-        <li>{personalData.phone}</li>
-        <li>{personalData.country}</li>
+        <li>{data.fullName}</li>
+        <li>{data.email}</li>
+        <li>{data.phone}</li>
+        <li>{data.country}</li>
       </ul>
       <Modal
         type="edit"
         section="Personal"
         handleData={handlePersonalData}
-        currentData={personalData}
+        currentData={data}
       />
     </div>
   );

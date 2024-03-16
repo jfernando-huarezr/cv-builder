@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export default function EducationForm({
   type,
@@ -6,7 +7,18 @@ export default function EducationForm({
   currentData,
   closeModal,
 }) {
-  const [formData, setFormData] = useState(currentData);
+  const initialFormData = {
+    id: uuidv4(),
+    degree: "",
+    school: "",
+    country: "",
+    startDate: "",
+    endDate: "",
+  };
+
+  const [formData, setFormData] = useState(
+    type === "edit" ? currentData : initialFormData
+  );
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -15,6 +27,7 @@ export default function EducationForm({
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(formData);
     handleData(formData);
     closeModal();
   };
@@ -29,7 +42,7 @@ export default function EducationForm({
           type="text"
           id="degree"
           name="degree"
-          value={type === "edit" ? formData.degree : ""}
+          value={formData.degree}
           onChange={handleChange}
           required
         />
@@ -39,7 +52,7 @@ export default function EducationForm({
           type="text"
           id="school"
           name="school"
-          value={type === "edit" ? formData.school : ""}
+          value={formData.school}
           onChange={handleChange}
           required
         />
@@ -49,7 +62,7 @@ export default function EducationForm({
           type="text"
           id="country"
           name="country"
-          value={type === "edit" ? formData.country : ""}
+          value={formData.country}
           onChange={handleChange}
           required
         />
@@ -59,7 +72,7 @@ export default function EducationForm({
           type="month"
           id="startDate"
           name="startDate"
-          value={type === "edit" ? formData.startDate : ""}
+          value={formData.startDate}
           onChange={handleChange}
           placeholder="e.g., March 2019"
           required
@@ -70,7 +83,7 @@ export default function EducationForm({
           type="month"
           id="endDate"
           name="endDate"
-          value={type === "edit" ? formData.endDate : ""}
+          value={formData.endDate}
           onChange={handleChange}
           placeholder="e.g., July 2015"
           required
