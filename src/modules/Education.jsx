@@ -5,6 +5,10 @@ import { createDataUpdater } from "./helpers";
 
 export default function Education({ data, set }) {
   const handleEducationData = createDataUpdater(data, set);
+  const handleDelete = (dataId) => {
+    const newData = data.filter((element) => element.id !== dataId);
+    set(newData);
+  };
 
   const showEducationInfo = data.map((educationInfo) => {
     return (
@@ -16,12 +20,19 @@ export default function Education({ data, set }) {
           <li>{formatDate(educationInfo.startDate)}</li>
           <li>{formatDate(educationInfo.endDate)}</li>
         </ul>
-        <Modal
-          type="edit"
-          section="Education"
-          handleData={handleEducationData}
-          currentData={educationInfo}
-        />
+        <div className="crud">
+          <Modal
+            type="edit"
+            section="Education"
+            handleData={handleEducationData}
+            currentData={educationInfo}
+          />
+          <Modal
+            type="delete"
+            handleData={handleDelete}
+            currentData={educationInfo.id}
+          />
+        </div>
       </div>
     );
   });

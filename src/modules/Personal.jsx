@@ -15,12 +15,14 @@ export default function Personal({ data, set }) {
         <li>{data.phone}</li>
         <li>{data.country}</li>
       </ul>
-      <Modal
-        type="edit"
-        section="Personal"
-        handleData={handlePersonalData}
-        currentData={data}
-      />
+      <div className="crud">
+        <Modal
+          type="edit"
+          section="Personal"
+          handleData={handlePersonalData}
+          currentData={data}
+        />
+      </div>
     </div>
   );
 

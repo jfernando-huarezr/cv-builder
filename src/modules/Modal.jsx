@@ -3,6 +3,7 @@ import editImg from "../assets/edit.svg";
 import deleteImg from "../assets/delete.svg";
 import EducationForm from "./EducationForm";
 import ExperienceForm from "./ExperienceForm";
+import ConfirmDelete from "./ConfirmDelete";
 import PersonalForm from "./PersonalForm";
 
 export default function Modal({ type, section, handleData, currentData }) {
@@ -44,6 +45,14 @@ export default function Modal({ type, section, handleData, currentData }) {
             )}
             {section === "Personal" && (
               <PersonalForm
+                type={type}
+                handleData={handleData}
+                currentData={currentData}
+                closeModal={closeModal}
+              />
+            )}
+            {type === "delete" && (
+              <ConfirmDelete
                 handleData={handleData}
                 currentData={currentData}
                 closeModal={closeModal}
