@@ -25,6 +25,7 @@ export const resumeInfo = {
       id: uuidv4(),
       position: "Technical",
       company: "Interamsa",
+      location: "Lima, Peru",
       startDate: "2019-03",
       endDate: "2023-03",
     },

@@ -32,11 +32,11 @@ export default function EducationForm({
     closeModal();
   };
   return (
-    <div>
+    <>
       {type === "new" && <h1>Add new Education</h1>}
       {type === "edit" && <h1>Edit Education</h1>}
 
-      <form onSubmit={handleSubmit}>
+      <form className="modal-content" onSubmit={handleSubmit}>
         <label htmlFor="degree">Degree:</label>
         <input
           type="text"
@@ -91,6 +91,6 @@ export default function EducationForm({
 
         <button type="submit">Submit</button>
       </form>
-    </div>
+    </>
   );
 }

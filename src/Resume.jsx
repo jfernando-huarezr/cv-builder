@@ -31,15 +31,15 @@ export default function Resume() {
         </nav>
       </header>
       <main>
-        <section key="personalData">
+        <section id="personal" key="personalData">
           <Personal data={personal} set={setPersonal} />
         </section>
-        <section key="education">
-          <h2>Education</h2>
+        <section id="education" key="education">
+          <h2>EDUCATION</h2>
           <Education data={education} set={setEducation} />
         </section>
-        <section key="work">
-          <h2>Experience</h2>
+        <section id="work" key="work">
+          <h2>WORK EXPERIENCE</h2>
           <Experience data={work} set={setWork} />
         </section>
       </main>

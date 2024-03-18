@@ -13,25 +13,33 @@ export default function Education({ data, set }) {
   const showEducationInfo = data.map((educationInfo) => {
     return (
       <div key={educationInfo.id} className="card">
-        <ul>
-          <li>{educationInfo.degree}</li>
-          <li>{educationInfo.school}</li>
-          <li>{educationInfo.country}</li>
-          <li>{formatDate(educationInfo.startDate)}</li>
-          <li>{formatDate(educationInfo.endDate)}</li>
-        </ul>
+        <div className="section-container">
+          <div>{educationInfo.school}</div>
+          <div>{educationInfo.country}</div>
+        </div>
+        <div className="section-container">
+          <div>
+            <i>{educationInfo.degree}</i>
+          </div>
+          <div>{`${formatDate(educationInfo.startDate)} - ${formatDate(
+            educationInfo.endDate
+          )}`}</div>
+        </div>
+
         <div className="crud">
-          <Modal
-            type="edit"
-            section="Education"
-            handleData={handleEducationData}
-            currentData={educationInfo}
-          />
-          <Modal
-            type="delete"
-            handleData={handleDelete}
-            currentData={educationInfo.id}
-          />
+          <div className="crud-buttons">
+            <Modal
+              type="edit"
+              section="Education"
+              handleData={handleEducationData}
+              currentData={educationInfo}
+            />
+            <Modal
+              type="delete"
+              handleData={handleDelete}
+              currentData={educationInfo.id}
+            />
+          </div>
         </div>
       </div>
     );

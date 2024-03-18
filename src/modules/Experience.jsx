@@ -16,24 +16,32 @@ export default function Experience({ data, set }) {
   const showExperienceInfo = data.map((experienceInfo) => {
     return (
       <div key={experienceInfo.id} className="card">
-        <ul>
-          <li>{experienceInfo.position}</li>
-          <li>{experienceInfo.company}</li>
-          <li>{formatDate(experienceInfo.startDate)}</li>
-          <li>{formatDate(experienceInfo.endDate)}</li>
-        </ul>
+        <div className="section-container">
+          <div>{experienceInfo.company}</div>
+          <div>{experienceInfo.location}</div>
+        </div>
+        <div className="section-container">
+          <div>
+            <i>{experienceInfo.position}</i>
+          </div>
+          <div>{`${formatDate(experienceInfo.startDate)} - ${formatDate(
+            experienceInfo.endDate
+          )}`}</div>
+        </div>
         <div className="crud">
-          <Modal
-            type="edit"
-            section="Experience"
-            handleData={handleExperienceData}
-            currentData={experienceInfo}
-          />
-          <Modal
-            type="delete"
-            handleData={handleDelete}
-            currentData={experienceInfo.id}
-          />
+          <div className="crud-buttons">
+            <Modal
+              type="edit"
+              section="Experience"
+              handleData={handleExperienceData}
+              currentData={experienceInfo}
+            />
+            <Modal
+              type="delete"
+              handleData={handleDelete}
+              currentData={experienceInfo.id}
+            />
+          </div>
         </div>
       </div>
     );

@@ -1,13 +1,11 @@
 @import "modal";
-
+@import "personal";
+@import "header";
+@import "education";
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-#root {
-  padding: 20px;
 }
 
 ul {
@@ -19,29 +17,65 @@ main {
   flex-direction: column;
   width: 100%;
   align-items: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 img {
   max-width: 100%;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-}
-
 section {
   width: 80%;
-  padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  margin-top: 20px;
+
+  .section-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 5px;
+  }
+
+  h2 {
+    padding-left: 20px;
+  }
 
   .card {
     position: relative;
+    padding: 10px 20px;
+    .crud {
+      display: none;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
   }
 
-  .card:hover .modal-button {
-    display: block;
+  .card:hover {
+    .crud {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba($color: #000000, $alpha: 0.5);
+
+      .crud-buttons {
+        display: flex;
+        column-gap: 8px;
+      }
+    }
+  }
+}
+
+input {
+  display: block;
+  width: 100%;
+}
+
+@media only screen and (max-width: 767px) {
+  section {
+    width: 100%;
   }
 }

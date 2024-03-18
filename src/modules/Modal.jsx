@@ -20,8 +20,8 @@ export default function Modal({ type, section, handleData, currentData }) {
   return (
     <div className={`modal ${type}`}>
       <button className="modal-button" onClick={openModal}>
-        {type === "edit" && <img src={editImg} alt="Edit" />}
-        {type === "delete" && <img src={deleteImg} alt="Delete" />}
+        {type === "edit" && "Edit"}
+        {type === "delete" && "Delete"}
         {type === "new" && `${section}+`}
       </button>
       {isOpen && (
@@ -58,7 +58,10 @@ export default function Modal({ type, section, handleData, currentData }) {
                 closeModal={closeModal}
               />
             )}
-            <button onClick={closeModal}>Close Modal</button>
+
+            <div className="btn-close-modal">
+              <button onClick={closeModal}>x</button>
+            </div>
           </div>
         </div>
       )}

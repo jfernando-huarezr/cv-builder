@@ -9,12 +9,17 @@ export default function Personal({ data, set }) {
 
   const showPersonalInfo = (
     <div key={data.id} className="personal-container card">
-      <ul>
-        <li>{data.fullName}</li>
-        <li>{data.email}</li>
-        <li>{data.phone}</li>
-        <li>{data.country}</li>
-      </ul>
+      <div className="main-info">
+        <h1>{data.fullName}</h1>
+        <div className="personal-extra-info">
+          <ul>
+            <li>{data.email}</li>
+            <li>{data.phone}</li>
+            <li>{data.country}</li>
+          </ul>
+        </div>
+      </div>
+
       <div className="crud">
         <Modal
           type="edit"

@@ -11,6 +11,7 @@ export default function ExperienceForm({
     id: uuidv4(),
     position: "",
     company: "",
+    location: "",
     startDate: "",
     endDate: "",
   };
@@ -33,7 +34,7 @@ export default function ExperienceForm({
     <div>
       {type === "new" && <h1>Add new Work Experience</h1>}
       {type === "edit" && <h1>Edit Work Experience</h1>}
-      <form onSubmit={handleSubmit}>
+      <form className="modal-content" onSubmit={handleSubmit}>
         <label htmlFor="position">Position:</label>
         <input
           type="text"
@@ -50,6 +51,16 @@ export default function ExperienceForm({
           id="company"
           name="company"
           value={formData.company}
+          onChange={handleChange}
+          required
+        />
+
+        <label htmlFor="location">Location:</label>
+        <input
+          type="text"
+          id="location"
+          name="location"
+          value={formData.location}
           onChange={handleChange}
           required
         />
